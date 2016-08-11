@@ -12,7 +12,7 @@ https://egghead.io/courses/practical-git-for-everyday-professional-use?utm_sourc
 
 60 dk.
 
--- Create local repos with git init
+-- Create local repos with git init --
 
 // oldugun yerde repo baslat
 git init
@@ -29,6 +29,8 @@ git remote add origin git@github.com:cemozturan/egghead-git-course.git
 
 // calisti mi diye knotrol et, remotelara bak
 git remote -v
+
+-- Capture code history snapshots with git add/commit/push --
 
 // reponun su anki durumunu ogren, mesela bir dosya degistirdin, burada cikar modified olarak, ama "not staged for commit" yazar
 git status
@@ -51,7 +53,28 @@ git status
 Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
 
+-- Sync local and remote repos with git pull -- 
 
+// baska developerlar commitler yapti diyelim, sunlar var elimizde
+git pull = git fetch && git merge
+git fetch = degisikleri kendi repomuza alir ama dosyalari degistirmez, grab the changes, store them but don't include them in our local code yet
+git merge = degisikleri uygular, merge in the changes we got from git fetch
 
+-- Isolate feature development with git branch --
 
+// Yeni branch yarat
+git branch new-branch-name
 
+// butun branchleri goster, yaninda asterisk (*) olan su anki checked out branch
+git branch
+
+// var olan bir brancha switch etmek icin
+git checkout new-branch-name
+
+// hem yeni branch yaratip hem ona switch etmek icin
+git checkout -b new-feature
+
+// su ankinden bir onceki brancha switch etmek icin, mesela masterdan new-feature'a gecmistin, bunu yazinca tekrar master'a donersin, bi daha yazarsan yeniden new-feature'a gecersin
+git checkout -
+
+-- Sync branches with git merge --
