@@ -36,6 +36,22 @@ git status
 // stage etmek icin
 git add -A
 
+// sonra commit et
+git commit -m "commit mesaji buraya"
+
+// status simdi master'in onunde oldugunu soyler
+git status
+Your branch is ahead of 'origin/master' by 1 commit.
+
+// push'la ki esit olsunlar
+git push
+
+// simdi statusa bak
+git status
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+
+
 
 
 
