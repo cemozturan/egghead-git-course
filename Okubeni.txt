@@ -30,3 +30,12 @@ git remote add origin git@github.com:cemozturan/egghead-git-course.git
 // calisti mi diye knotrol et, remotelara bak
 git remote -v
 
+// reponun su anki durumunu ogren, mesela bir dosya degistirdin, burada cikar modified olarak, ama "not staged for commit" yazar
+git status
+
+// stage etmek icin
+git add -A
+
+
+
+
