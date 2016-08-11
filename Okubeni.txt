@@ -91,3 +91,6 @@ git merge new-feature
 git push
 // simdi de feature branchimizi silebiliriz artik
 git branch -d new-feature
+
+-- Resolve merge conflicts with git status --
+
