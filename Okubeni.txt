@@ -4,3 +4,29 @@ https://egghead.io/courses/practical-git-for-everyday-professional-use?utm_sourc
 12 Agustos'a kadar bedava idi.
 
 60 dk.
+
+Practical Git for Everyday Professional Use
+https://egghead.io/courses/practical-git-for-everyday-professional-use?utm_source=drip&utm_medium=email&utm_campaign=learn-git-make-money
+
+12 Agustos'a kadar bedava idi.
+
+60 dk.
+
+-- Create local repos with git init
+
+// oldugun yerde repo baslat
+git init
+
+// .git klasorunu siler
+rm -rf .git/
+
+// dosyalari ekle
+git add -A
+
+// Sonra github -> profilin -> repositories -> new, yaratirken SSH kullan, HTTPS degil, yaratinca ssh'i kopyala
+git remote add origin git@github.com:cemozturan/egghead-git-course.git
+("origin" bizim remote'umuzun adi)
+
+// calisti mi diye knotrol et, remotelara bak
+git remote -v
+
