@@ -78,3 +78,16 @@ git checkout -b new-feature
 git checkout -
 
 -- Sync branches with git merge --
+
+// yeni branchta degisikler yaptin diyelim, ve mastera merge etmek istiyorsun.
+// once yeni brancha commit et o degisikleri (push yapma, sadece commit)
+git commit -m "bi seyler bi seyler"
+// sonra master'a switch et (degisikleri merge etmek istedigin brancha gec)
+git checkout master
+// sonra da hangi branchtan degisikleri alacaksan onu kullanarak git merge yap
+git merge new-feature
+// git kendisi ne tip bir merge yapacagini belirler, eger kolaysa, linear enough ise, fast-forward yapar, ama karisiksa 3-way merge yapar.
+// simdi master'da degisikler, istersen git status ile kontrol et, master'i pushla
+git push
+// simdi de feature branchimizi silebiliriz artik
+git branch -d new-feature
