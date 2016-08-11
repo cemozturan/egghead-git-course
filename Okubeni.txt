@@ -94,3 +94,53 @@ git branch -d new-feature
 
 -- Resolve merge conflicts with git status --
 
+// simdi mesela push yapmaya calistin, ama dedi ki 
+// Updates were rejected because the remote contains work that you do 
+// hint: not have locally. This is usually caused by another repository pushing
+// hint: to the same ref. You may want to first integrate the remote changes
+// hint: (e.g., 'git pull ...') before pushing again.
+// pull yapar degisikleri aliriz push etmeden once
+git pull
+// degisiklikleri alalim dedik ama bu sefer de conflict oldu
+// CONFLICT (content): Merge conflict in someFile.txt
+// Automatic merge failed; fix conflicts and then commit the result.
+
+// git status burada ise yarar, "unmerged paths" altinda merge edilmemis her seyi listeler, bunlar conflictli olanlar
+git status
+
+// simdi conflict olan dosyayi herhangi bir text editorle acarsak soyle seyler goruruz:
+<<<<<<< HEAD
+Old words are here. 2.   (simdi su HEAD ile === arasi bizim degisiklikler)
+=======
+Some old words.
+			 (=== ile >>> arasi remote'tan gelenler)
+1.
+>>>>>>> 9bc3000904553785e10c9312be414098379e2151
+// ister kendimizinkini, ister remote'unkini, ister ikisinin karisimini kullanarak dosyayi duzeltiriz, save ederiz
+// sonra da normal add-commit-push ederiz
+git add -A
+git commit -m "some stuff and resolved conflict"
+git push
+
+-- Save uncommitted changes with git stash --
+
+// Simdi mesela yeni bir feature icin yeni bir branch yarattik
+git checkout -b new-feature
+
+// yeni bir dosya ekledik, file6.txt mesela, bi seyler yazili icinde filan, ama birden dediler ki onemli bir bug var hemen bakilmasi gereken
+// eger direkt o bug icin bir branch yaratirsak bizim yeni dosya da o branchta olacak, ama biz bunu istemiyoruz. Bug branch yaratmadan once stage edip sonra stashleriz:
+git add -A
+git stash
+// Saved working directory and index state WIP on new-feature: 9045881 edit
+// HEAD is now at 9045881 edit
+
+// Bunun yaptigi sey, butun uncommitted degisikleri stashlemek, ve working copy'yi last commite dondurmek.
+
+// simdi bug icin branch yaratalim
+git checkout -b hot-fix
+
+// gereken degisikliklerden sonra pushlayalim
+git add -A
+git commit -m "hot fix"
+git push
+
