@@ -139,8 +139,34 @@ git stash
 // simdi bug icin branch yaratalim
 git checkout -b hot-fix
 
-// gereken degisikliklerden sonra pushlayalim
+// gereken degisikliklerden sonra once commit, sonra mastera merge, sonra pushlayalim
 git add -A
 git commit -m "hot fix"
+git checkout master
+git merge hot-fix
 git push
+
+// hot-fix branchini sil
+git branch -d hot-fix
+
+// new feature'a geri don
+git checkout new-feature
+
+// stashi uygula
+git stash apply
+
+// eger apply edilen stash ve su anki working copy ayni kodda degisiklik yapmaya calisiyorsa, ayni merge'de oldugu gibi conflict olur, ve ayni sekilde cozulur.
+
+-- Navigate git command pager output with unix less commands --
+
+// onceki commitleri gormek icin
+git log
+
+// bu farkli bir pager view'a alir bizi.
+// "q" ile cikarsin.
+// down-up arrows, pageup-pagedown, j-k, ctrl+f/b ile asagi yukari gidilir
+// forward slash ile arama yapilir loglarda, /word yazip entera bas, word'lu yerler highlight olur. n ve N ile next/previous result bulunur.
+
+// git log bir takim argumanlarla bilgileri ne sekilde gosterecegini ayarlayabilir
+git log {arguments}
 
